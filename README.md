@@ -28,7 +28,7 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
-## Semantic Release
+### Semantic Release
 
 For repos that have a seperate release process:
 
