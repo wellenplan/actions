@@ -1,6 +1,12 @@
 name: Directus Extension CI
 on:
   workflow_call:
+    inputs:
+      publish:
+        description: 'Enable publishing tags and node modules.'
+        default: true
+        required: false
+        type: boolean
     secrets:
       ORGA_USER_TOKEN:
         required: true
@@ -50,13 +56,13 @@ jobs:
             ${{ runner.os }}-node
       - uses: go-semantic-release/action@v1
         id: semrel
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && inputs.publish
         with:
           github-token: ${{ secrets.ORGA_USER_TOKEN }}
           allow-initial-development-versions: true
           update-file: package.json
           changelog-generator-opt: "emojis=true"
       - run: npm publish --access=public
-        if: steps.semrel.outputs.version != ''
+        if: steps.semrel.outputs.version != '' && inputs.publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
