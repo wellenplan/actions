@@ -22,7 +22,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: wellenplan/actions/.github/workflows/directus-extension.yaml@v0.1.0
+    uses: wellenplan/actions/.github/workflows/directus-extension.yaml@v0.2.0
     secrets:
       ORGA_USER_TOKEN: ${{ secrets.ORGA_USER_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -44,7 +44,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: wellenplan/actions/.github/workflows/semantic-release.yaml@v0.1.0
+    uses: wellenplan/actions/.github/workflows/semantic-release.yaml@v0.2.0
     secrets:
       ORGA_USER_TOKEN: ${{ secrets.ORGA_USER_TOKEN }}
 ```
