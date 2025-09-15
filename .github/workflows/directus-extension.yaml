@@ -17,7 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/setup-node@v3
       - uses: actions/cache@v4
         with:
@@ -38,7 +38,7 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main' && github.repository != 'wellenplan/directus-extension-wellenplan-template'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/download-artifact@v4
         with:
           name: pack
