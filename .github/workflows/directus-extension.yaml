@@ -39,7 +39,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.repository != 'wellenplan/directus-extension-wellenplan-template'
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: pack
       - name: unpack artifact
